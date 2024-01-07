@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Fundamentals</title>
+  <script>
+    // 17 HTML form for circle area and circumference
+    function calculateCircleProperties() {
+      const radius = parseFloat(document.getElementById('radius').value);
+
+      const area = Math.PI * Math.pow(radius, 2);
+      const circumference = 2 * Math.PI * radius;
+
+      document.getElementById('areaResult').innerHTML = `Area: ${area.toFixed(2)}`;
+      document.getElementById('circumferenceResult').innerHTML = `Circumference: ${circumference.toFixed(2)}`;
+    }
+
+    // 18 String manipulation
+    function manipulateStrings() {
+      const mainString = document.getElementById('mainString').value;
+      const subString = document.getElementById('subString').value;
+      const output = document.getElementById('output');
+
+      const searchResult = document.getElementById('searchResult');
+      const upperCaseResult = document.getElementById('upperCaseResult');
+      const lowerCaseResult = document.getElementById('lowerCaseResult');
+      const trimResult = document.getElementById('trimResult');
+      const concatenateResult = document.getElementById('concatenateResult');
+      const customOperationResult = document.getElementById('customOperationResult');
+
+      if (document.getElementById('searchRadio').checked) {
+        searchResult.innerHTML = `Search Result: ${mainString.includes(subString)}`;
+      } else if (document.getElementById('upperCaseRadio').checked) {
+        upperCaseResult.innerHTML = `Uppercase: ${mainString.toUpperCase()}`;
+      } else if (document.getElementById('lowerCaseRadio').checked) {
+        lowerCaseResult.innerHTML = `Lowercase: ${mainString.toLowerCase()}`;
+      } else if (document.getElementById('trimRadio').checked) {
+        trimResult.innerHTML = `Trimmed: ${mainString.trim()}`;
+      } else if (document.getElementById('concatenateRadio').checked) {
+        concatenateResult.innerHTML = `Concatenated: ${mainString + subString}`;
+      } else if (document.getElementById('customOperationRadio').checked) {
+        // Custom operation, you can define your own logic here
+        customOperationResult.innerHTML = `Custom Operation Result: ${mainString} ${subString}`;
+      }
+    }
+
+    // 19.Sum of digits of a positive integer
+    function sumOfDigitsInRange() {
+      const number = parseInt(prompt('Enter a positive integer less than 1000:'));
+      
+      if (number >= 0 && number < 1000) {
+        let sum = 0;
+        const strNumber = number.toString();
+        for (let digit of strNumber) {
+          sum += parseInt(digit);
+        }
+        alert(`Sum of the digits of ${number} is ${sum}`);
+      } else {
+        alert('Entered number is out of range');
+      }
+    }
+
+    // 20 Array of member names in uppercase
+    function displayMemberNames() {
+      const memberNames = ['John', 'Jane', 'Doe', 'Smith'];
+      const result = document.getElementById('memberNamesResult');
+      result.innerHTML = `Member Names: ${memberNames.map(name => name.toUpperCase()).join(', ')}`;
+    }
+
+    // 21 Populate list with member names
+    function populateListWithMemberNames() {
+      const memberNames = ['John', 'Jane', 'Doe', 'Smith'];
+      const list = document.getElementById('list');
+
+      memberNames.forEach(name => {
+        const listItem = document.createElement('li');
+        listItem.textContent = name;
+        list.appendChild(listItem);
+      });
+    }
+
+    // 22 Search divs containing the string "training"
+    function searchDivsContainingString() {
+      const divsContainingString = document.querySelectorAll('div:contains("training")');
+      console.log(divsContainingString);
+      // Perform any desired actions with the matched divs
+    }
+  </script>
+  <style>
+    /* Style for :contains selector */
+    :contains {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!--  HTML form for circle area and circumference -->
+  <form id="circleForm">
+    <label for="radius">Radius:</label>
+    <input type="number" id="radius" name="radius" required><br>
+
+    <button type="button" onclick="calculateCircleProperties()">Calculate Properties</button>
+    <p id="areaResult"></p>
+    <p id="circumferenceResult"></p>
+  </form>
+
+  <!--  String manipulation -->
+  <form id="stringManipulationForm">
+    <label for="mainString">Main String:</label>
+    <input type="text" id="mainString" name="mainString" required><br>
+
+    <label for="subString">Sub String:</label>
+    <input type="text" id="subString" name="subString" required><br>
+
+    <label>Operations:</label><br>
+    <input type="radio" id="searchRadio" name="operation" value="search"> Search Substring<br>
+    <input type="radio" id="upperCaseRadio" name="operation" value="upperCase"> Convert to Uppercase<br>
+    <input type="radio" id="lowerCaseRadio" name="operation" value="lowerCase"> Convert to Lowercase<br>
+    <input type="radio" id="trimRadio" name="operation" value="trim">

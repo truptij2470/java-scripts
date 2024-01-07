@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Fundamentals</title>
+  <script>
+    //Find the largest of three numbers
+    function findLargestNumber(a, b, c) {
+      return Math.max(a, b, c);
+    }
+
+    // Print a message multiple times
+    function printMessageMultipleTimes(message, times) {
+      for (let i = 0; i < times; i++) {
+        console.log(message);
+      }
+    }
+
+    //List even numbers using a while loop
+    function listEvenNumbers(n) {
+      let i = 2;
+      while (i <= n) {
+        console.log(i);
+        i += 2;
+      }
+    }
+
+    function performOperation(num1, num2, operator) {
+      switch (operator) {
+        case '+':
+          return num1 + num2;
+        case '-':
+          return num1 - num2;
+        case '*':
+          return num1 * num2;
+        case '/':
+          return num1 / num2;
+        default:
+          return 'Invalid operator';
+      }
+    }
+
+    //Multiplication table
+    function printMultiplicationTable(number) {
+      for (let i = 1; i <= 10; i++) {
+        console.log(`${number} * ${i} = ${number * i}`);
+      }
+    }
+
+    //Sum of digits of a five-digit number
+    function sumOfDigits(fiveDigitNumber) {
+      let sum = 0;
+      const strNumber = fiveDigitNumber.toString();
+      for (let digit of strNumber) {
+        sum += parseInt(digit);
+      }
+      return sum;
+    }
+
+    //Find minimum of given numbers
+    function min() {
+      let minValue = arguments[0];
+      for (let i = 1; i < arguments.length; i++) {
+        if (arguments[i] < minValue) {
+          minValue = arguments[i];
+        }
+      }
+      return minValue;
+    }
+
+    //Power function
+    function pow(x, y) {
+      let result = 1;
+      for (let i = 0; i < y; i++) {
+        result *= x;
+      }
+      return result;
+    }
+
+    // Compound Interest calculation
+    function calculateCompoundInterest(p, r, n) {
+      const compoundInterest = p * Math.pow((1 + r / 100), n) - p;
+      return compoundInterest;
+    }
+
+
+    console.log(findLargestNumber(3, 7, 2));
+    printMessageMultipleTimes("Hello, World!", 5);
+    listEvenNumbers(10);
+    console.log(performOperation(5, 3, '*'));
+    printMultiplicationTable(2);
+    console.log(sumOfDigits(12345));
+    console.log(min(3, 1, 7, 5, 2));
+    console.log(pow(2, 3));
+    console.log(calculateCompoundInterest(1000, 10, 1));
+  </script>
+</head>
+<body>
+  <!-- Compound Interest Calculator Form -->
+  <form id="compoundInterestForm">
+    <label for="principal">Principal:</label>
+    <input type="number" id="principal" name="principal" required><br>
+
+    <label for="rate">Rate of Interest:</label>
+    <input type="number" id="rate" name="rate" required><br>
+
+    <label for="period">Period (in years):</label>
+    <input type="number" id="period" name="period" required><br>
+
+    <button type="button" onclick="calculateAndDisplayInterest()">Calculate Compound Interest</button>
+    <p id="result"></p>
+  </form>
+
+  <script>
+    function calculateAndDisplayInterest() {
+      const principal = parseFloat(document.getElementById('principal').value);
+      const rate = parseFloat(document.getElementById('rate').value);
+      const period = parseFloat(document.getElementById('period').value);
+
+      const compoundInterest = calculateCompoundInterest(principal, rate, period);
+      document.getElementById('result').innerHTML = `Compound Interest: $${compoundInterest.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #container {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+
+        <table id="main-table" border="1" cellspacing="0" cellpadding="0" style="background-color:lightblue;">
+
+            <form action="">
+
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <br>&nbsp; &nbsp; <input type="text" name="name" id="name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Employee Code</td>
+                    <td><br>&nbsp; &nbsp; <input type="number" name="employee-code" id="employee-code" min="1001"></td>
+                </tr>
+
+                <tr>
+                    <td>Department</td>
+                    <td>
+                        &nbsp; <input type="radio" name="department" id="department"> ADMIN <br>
+                        &nbsp; <input type="radio" name="department" id="department"> HR <br>
+                        &nbsp; <input type="radio" name="department" id="department"> TECHNICAL <br>
+                        &nbsp; <input type="radio" name="department" id="department"> ACCOUNTS <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of Joining</td>
+                    <td>
+                        <input type="date" name="join-date" id="join-date">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        <textarea name="address" id="address" cols="30" rows="4"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Training programs attended</td>
+                    <td>
+                        <br> <input type="checkbox" name="prog" id="prog">HTML/DHTML
+                        <br><input type="checkbox" name="prog" id="prog">JAVA 
+                        <br><input type="checkbox" name="prog" id="prog">CLIENT/SERVER 
+                        <br><input type="checkbox" name="prog" id="prog">.NET 
+                    </td>
+                </tr>
+                <tr>
+                    <td>Training Programmes need to attend</td>
+                    <td>
+                        <label for="trainee"></label>
+                        <select name="trainee" id="trainee" size="2">
+                            <option value="JS">JAVASCRIPT</option>
+                            <option value="JSTR">JSTRUTS</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Send the information at</td>
+                    <td>
+                        <a href="mailTo:empinfo@2470.com">empinfo@2470.com</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit">Submit</button>
+                        <button type="reset">Reset</button>
+                    </td>
+                </tr>
+            </form>
+        </table>
+
+    </div>
+
+</body>
+
+</html>
